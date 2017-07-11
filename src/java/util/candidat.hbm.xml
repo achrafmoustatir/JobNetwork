@@ -39,7 +39,7 @@
                 <property name="TeleR" column="TeleR"></property>
                 <property name="IdS" column="IdS"></property>
                 
-                <!--<many-to-one name="IdS" class="model.Secteur" fetch="select" cascade="none">
+                <!--<many-to-one name="IdS" class="model.Secteur" fetch="select" cascade="save-update">
                     <column name="IdS"/>             
                 </many-to-one>-->
   
@@ -50,7 +50,7 @@
 	    </id>
             <property name="NomS" column="NomS"></property>
             
-            <set name="Recruteurs" table="recruteur" inverse="true" lazy="true" fetch="select" cascade="none" >
+            <set name="Recruteurs" table="recruteur" inverse="true" lazy="true" fetch="select" cascade="save-update" >
                 <key>
                     <column name="IdE" ></column>
                 </key>

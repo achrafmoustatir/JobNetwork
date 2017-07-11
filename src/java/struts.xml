@@ -39,10 +39,13 @@
                         
 			<result name="error">/connecter_candidat.jsp</result>
 		</action>
+                
                  <action name="connecter_recruteur" class="presentation.AuthentificationAction" method="RecruteurAuth">
                         <result name="success">/index.jsp</result>
 			<result name="error">/connecter_candidat.jsp</result>
 		</action>
+                
+                
                
 </package>
 		

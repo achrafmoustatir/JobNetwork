@@ -18,9 +18,6 @@ public class Recruteur {
     private String EmailR;
     private String PwdR;
     private String TeleR;
-    
-    
-
 
     public int getIdS() {
         return IdS;
@@ -29,7 +26,6 @@ public class Recruteur {
     public void setIdS(int IdS) {
         this.IdS = IdS;
     }
-
     
 
     public int getIdE() {

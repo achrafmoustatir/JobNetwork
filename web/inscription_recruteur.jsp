@@ -196,7 +196,7 @@
                                                                                                                      <div class="form-group row">
 																	<label for="category" class="col-sm-3 control-label">Secteur Entreprise</label>
 																	<div class="col-sm-9">
-																		<select name="rc.IdS" id="NomSecteur" class="form-control" >
+																		<select name="rc.IdS" id="NomSecteur" class="form-control"  >
                                                                                                                                                         <option value="14"></option>
 																		        <option value="1">Comptabilité/Audit</option>
 																			<option value="2">Relations Publiques</option>
