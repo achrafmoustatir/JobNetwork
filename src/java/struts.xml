@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+<constant name="struts.custom.i18n.resources" value="Labels-fr,Message-fr"></constant>
+<package name="package" extends="struts-default" namespace="/">
+    
+           <interceptors>
+	    	<interceptor name="sessionC" class="SessionInterceptor" />
+	    </interceptors>
+
+                <action name="AjouterCandidat" class="presentation.CandidatAction" method="AjouterCandidat">
+                        <result name="success">/connecter_candidat.jsp</result>
+			<result name="error">/inscription_candidat.jsp</result>
+		</action>
+                <action name="AuthentifierCandidat" class="presentation.CandidatAction" method="CandidatAuth">
+                        <result name="success">/index.jsp</result>
+			<result name="error">/connecter_candidat.jsp</result>
+		</action>
+                <action name="AjouterRecruteur" class="presentation.RecruteurAction" method="AjouterRecruteur">
+                        <result name="success">/connecter_candidat.jsp</result>
+			<result name="error">/inscription_recruteur.jsp</result>
+		</action>
+                 <action name="AuthentifierRecruteur" class="presentation.RecruteurAction" method="RecruteurAuth">
+                        <result name="success">/index.jsp</result>
+			<result name="error">/connecter_candidat.jsp</result>
+		</action>
+                <action name="AjouterOffre" class="presentation.AjouterOfAction" method="AjouterOffre">
+                        <result name="success">/index.jsp</result>
+			<result name="error">/ajouter_offre.jsp</result>
+		</action>
+                
+                 <action name="connecter_candidat" class="presentation.AuthentificationAction" method="CandidatAuth">
+                     <interceptor-ref name="sessionC"></interceptor-ref>
+                        <result name="success">/index.jsp</result>
+                        
+			<result name="error">/connecter_candidat.jsp</result>
+		</action>
+                 <action name="connecter_recruteur" class="presentation.AuthentificationAction" method="RecruteurAuth">
+                        <result name="success">/index.jsp</result>
+			<result name="error">/connecter_candidat.jsp</result>
+		</action>
+               
+</package>
+		
+    
+</struts>
+

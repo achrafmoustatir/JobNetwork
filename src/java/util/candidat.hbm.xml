@@ -1,0 +1,103 @@
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    
+	<class name="model.Candidat" table="candidat">
+		<id name="idC" column="idC">
+			<generator class="increment"/>
+		</id>
+		<property name="Nomc" column="Nomc"></property>
+                <property name="Prenomc" column="Prenomc"></property>
+                <property name="EmailC" column="EmailC"></property>
+                <property name="MPassC" column="MPassC"></property>
+                <property name="DatenC" column="DatenC"></property>
+                <property name="AdresseC" column="AdresseC"></property>
+                <property name="PhotoC" column="PhotoC"></property>
+                <property name="sexeC" column="sexeC"></property>
+                <property name="TelC" column="TelC"></property>
+		
+	</class>
+        
+        <class name="model.Recruteur" table="recruteur">
+		<id name="IdE" column="IdE">
+			<generator class="increment"/>
+		</id>
+		<property name="NomE" column="NomE"></property>
+                <property name="AdresseE" column="AdresseE"></property>
+                <property name="CodePE" column="CodePE"></property>
+                <property name="TeleE" column="TeleE"></property>
+                <property name="FaxE" column="FaxE"></property>
+                <property name="SiteWebE" column="SiteWebE"></property>
+                <property name="DescriptionE" column="DescriptionE"></property>
+                <property name="LogoE" column="LogoE"></property>
+                <property name="NomR" column="NomR"></property>
+                <property name="PrenomR" column="PrenomR"></property>
+                <property name="EmailR" column="EmailR"></property>
+                <property name="PwdR" column="PwdR"></property>
+                <property name="TeleR" column="TeleR"></property>
+                <property name="IdS" column="IdS"></property>
+                
+                <!--<many-to-one name="IdS" class="model.Secteur" fetch="select" cascade="none">
+                    <column name="IdS"/>             
+                </many-to-one>-->
+  
+	</class>
+        <class name="model.Secteur" table="secteur">
+            <id name="IdS" column="IdS">
+			<generator class="increment"/>
+	    </id>
+            <property name="NomS" column="NomS"></property>
+            
+            <set name="Recruteurs" table="recruteur" inverse="true" lazy="true" fetch="select" cascade="none" >
+                <key>
+                    <column name="IdE" ></column>
+                </key>
+                <one-to-many class="model.Recruteur"/>
+            </set>
+        </class>
+        <class name="model.Offre" table="offre">
+		<id name="IdO" column="IdO">
+			<generator class="increment"/>
+		</id>
+		<property name="TitreO" column="TitreO"></property>
+                <property name="TypeContrat" column="TypeContrat"></property>
+                <property name="DureeExp" column="DureeExp"></property>
+                <property name="Description" column="Description"></property>
+                <property name="NiveauEtude" column="NiveauEtude"></property>
+                <property name="NiveauPoste" column="NiveauPoste"></property>
+                <property name="DateColt" column="DateColt"></property>
+                <property name="ImageO" column="ImageO"></property>
+                <property name="Salaire" column="Salaire"></property>
+                <property name="IdV" column="IdV"></property>
+                <property name="Iddo" column="Iddo"></property>
+	</class>
+        <class name="model.Ville" table="ville">
+            <id name="Idv" column="Idv">
+			<generator class="increment"/>
+	    </id>
+            <property name="NomV" column="NomV"></property>
+            
+            <!--<set name="Offre" table="offre" inverse="true" lazy="true" fetch="select" cascade="none" >
+                <key>
+                    <column name="IdO" ></column>
+                </key>
+                <one-to-many class="model.Offre"/>
+            </set>-->
+        </class>
+        <class name="model.DomaineOffre" table="domaineoffre">
+            <id name="Iddo" column="Iddo">
+			<generator class="increment"/>
+	    </id>
+            <property name="NomDO" column="NomDO"></property>
+            
+            <!--<set name="Offre" table="offre" inverse="true" lazy="true" fetch="select" cascade="none" >
+                <key>
+                    <column name="IdO" ></column>
+                </key>
+                <one-to-many class="model.Offre"/>
+            </set>-->
+        </class>
+     
+</hibernate-mapping>
